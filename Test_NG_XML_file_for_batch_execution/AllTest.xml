@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="satish">
+	
+    <classes>
+      <class name="TestNg_XML_File_For_batch_execution.ClassC"/>
+      <class name="TestNg_XML_File_For_batch_execution.ClassB"/>
+      <class name="TestNg_XML_File_For_batch_execution.ClassA"/>
+    </classes>
+   
+    <!--
+    To run particular test cases from different classes
+    <classes>
+      <class name="TestNg_XML_File_For_batch_execution.ClassA">
+      <methods>
+		<include name="methodAThree"/>
+	  </methods>
+	  </class>
+	   <class name="TestNg_XML_File_For_batch_execution.ClassB">
+		<methods>
+			<exclude name="methodBThree"/>
+		</methods>
+	  </class>
+      <class name="TestNg_XML_File_For_batch_execution.ClassC">
+      <methods>
+		<include name="methodCTwo"/>
+		<include name="methodCOne"/>
+	  </methods>
+      </class>
+    </classes>
+     -->
+  </test> <!-- satish -->
+</suite> <!-- Suite -->
