@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TutorialsNinja Automation Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TutorialsNinja Test(failed)">
+    <classes>
+      <class name="TutorialsNinja_Test_Cases.Login">
+        <methods>
+          <include name="verifyLoginWithBlankCredentials"/>
+          <include name="setup"/>
+          <include name="verifyLoginWithInvalidEmailAndValidPassword"/>
+          <include name="verifyLoginWithValidEmailAndInvalidPassword"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TutorialsNinja_Test_Cases.Login -->
+      <class name="TutorialsNinja_Test_Cases.Register">
+        <methods>
+          <include name="verifyRegisteringAccountwithExistingEmail"/>
+          <include name="verifyRegisteringAnAccountWithMandatoryField"/>
+          <include name="tearDown"/>
+          <include name="verifyRegisteringAccountByProvidingAllFields"/>
+          <include name="verifyRegisteringAccountWithoutFillingAnyDetails"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- TutorialsNinja_Test_Cases.Register -->
+      <class name="TutorialsNinja_Test_Cases.Search">
+        <methods>
+          <include name="verifySearchWithValidProduct"/>
+          <include name="verifySearchWithInvalidProduct"/>
+          <include name="verifySearchWithWithoutAnyProduct"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- TutorialsNinja_Test_Cases.Search -->
+    </classes>
+  </test> <!-- TutorialsNinja Test(failed) -->
+</suite> <!-- Failed suite [TutorialsNinja Automation Suite] -->
