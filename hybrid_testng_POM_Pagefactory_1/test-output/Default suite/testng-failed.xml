@@ -5,8 +5,8 @@
     <classes>
       <class name="TutorialsNinja_Test_Cases.Login">
         <methods>
+          <include name="verifyLoginWithInvalidCredentials"/>
           <include name="setup"/>
-          <include name="verifyLoginWithValidEmailAndInvalidPassword"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- TutorialsNinja_Test_Cases.Login -->

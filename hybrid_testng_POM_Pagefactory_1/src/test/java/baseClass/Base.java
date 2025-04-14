@@ -16,11 +16,24 @@ public class Base {
 	
 	WebDriver driver;
 	public Properties prop;
+	public Properties dataProp;
 	
 	public  Base() {
 		
 			prop=new Properties();
 			File propfile=new File(System.getProperty("user.dir")+"\\src\\main\\java\\qa\\config\\config.properties");
+			
+			dataProp =new Properties();
+			File dataPropfile=new File(System.getProperty("user.dir")+"\\src\\main\\java\\testdata\\testdata.properties");
+			
+			try {
+			FileInputStream fis2=new FileInputStream(dataPropfile);
+			dataProp.load(fis2);
+			}catch(Throwable e) {
+				e.printStackTrace();
+			}
+			
+			
 			
 			try {
 			FileInputStream fis=new FileInputStream(propfile);
