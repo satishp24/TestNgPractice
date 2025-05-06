@@ -1,14 +1,7 @@
 package com.tutorialsninja.qa.testcase;
 
-import java.time.Duration;
-import java.util.Date;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,12 +16,19 @@ import com.tutorialsninja.qa.utils.Utilities;
 
 public class Login extends Base {
 	
+	public Login() {
+		
+		super();
+		
+	}
+	
 	WebDriver driver;
 	
 	@BeforeMethod
 	public void setup() {
+		
 		//Calling browser initialize method from base class
-		driver=initializeBrowserAndOpenApplicationURL("chrome");
+		driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browserName"));
 		//Click on MyAccount Tab
 		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
 		
@@ -49,10 +49,10 @@ public class Login extends Base {
 		
 		
 		//Email Address Text field
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys("pariharsatish32@gmail.com");
+		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(prop.getProperty("validEmail"));
 		
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Click on Login Button
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
@@ -72,14 +72,14 @@ public class Login extends Base {
 		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(Utilities.generateEmailWithTimeStamp());
 				
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("1234567");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
 				
 		//Click on Login Button
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		String actualwarningmessage=driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
 		//System.out.println(actualwarningmessage);
-		String expectedwarningmessage="Warning: No match for E-Mail Address and/or Password.";
+		String expectedwarningmessage=dataProp.getProperty("emailPasswordNoMatchWarning");
 		Assert.assertTrue(actualwarningmessage.contains(expectedwarningmessage),"Expected warning message is not displayed");
 		
 	}
@@ -89,17 +89,17 @@ public class Login extends Base {
 		
 				
 		//Email Address Text fieldgenerateEmailWithTimeStamp
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys("pariharsatisha123@gmail.com");
+		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(dataProp.getProperty("invalidEmail"));
 				
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
 				
 		//Click on Login Button
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		String actualwarningmessage=driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
 		//System.out.println(actualwarningmessage);
-		String expectedwarningmessage="Warning: No match for E-Mail Address and/or Password.";
+		String expectedwarningmessage=dataProp.getProperty("emailPasswordNoMatchWarning");
 		Assert.assertTrue(actualwarningmessage.contains(expectedwarningmessage),"Expected warning message is not displayed");
 		
 		
@@ -110,17 +110,17 @@ public class Login extends Base {
 		
 				
 		//Email Address Text field
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys("pariharsatish32@gmail.com");
+		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(prop.getProperty("validEmail"));
 				
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("123456789");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
 				
 		//Click on Login Button
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		String actualwarningmessage=driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
 		//System.out.println(actualwarningmessage);
-		String expectedwarningmessage="Warning: No match for E-Mail Address and/or Password.";
+		String expectedwarningmessage=dataProp.getProperty("emailPasswordNoMatchWarning");
 		Assert.assertTrue(actualwarningmessage.contains(expectedwarningmessage),"Expected warning message is not displayed");
 		
 		

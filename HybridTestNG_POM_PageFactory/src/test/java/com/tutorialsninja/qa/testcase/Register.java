@@ -1,14 +1,7 @@
 package com.tutorialsninja.qa.testcase;
 
-import java.time.Duration;
-import java.util.Date;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +14,11 @@ import com.tutorialsninja.qa.utils.Utilities;
 
 public class Register extends Base {
 	
+	public Register() {
+		
+			super();
+		
+	}
 	WebDriver driver;
 	
 	
@@ -34,7 +32,7 @@ public class Register extends Base {
 	public void setup() {
 		
 		//Calling browser initialize method from base class
-		driver=initializeBrowserAndOpenApplicationURL("chrome");
+		driver=initializeBrowserAndOpenApplicationURL(prop.getProperty("browserName"));
 		
 		//Click on MyAccount Tab
 		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
@@ -51,22 +49,22 @@ public class Register extends Base {
 		
 		
 		//First Name Text Field
-		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys("satish");
+		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys(dataProp.getProperty("firstName"));
 		
 		//Second NameText Field
-		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys("parihar");
+		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys(dataProp.getProperty("lastName"));
 		
 		//Email Text Field
 		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(Utilities.generateEmailWithTimeStamp());
 		
 		//Telephone Text Field
-		driver.findElement(By.xpath("//input[@id='input-telephone']")).sendKeys("9619033142");
+		driver.findElement(By.xpath("//input[@id='input-telephone']")).sendKeys(dataProp.getProperty("telePhone"));
 		
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Password Confirm Text Field
-		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Privacy policy checkbox Field
 		driver.findElement(By.xpath("//input[@name='agree']")).click();
@@ -75,7 +73,7 @@ public class Register extends Base {
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
 		String actualSuccessfulHeading=driver.findElement(By.xpath("//h1[normalize-space()='Your Account Has Been Created!']")).getText();
-		Assert.assertEquals(actualSuccessfulHeading, "Your Account Has Been Created!", "Account Success Page Is Not Displayed");
+		Assert.assertEquals(actualSuccessfulHeading, dataProp.getProperty("accountSuccessfullyCreatingHeading"), "Account Success Page Is Not Displayed");
 		
 		
 		
@@ -92,22 +90,22 @@ public class Register extends Base {
 		driver.findElement(By.xpath("//a[normalize-space()='Register']")).click();
 		
 		//First Name Text Field
-		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys("satish");
+		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys(dataProp.getProperty("firstName"));
 		
 		//Second NameText Field
-		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys("parihar");
+		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys(dataProp.getProperty("lastName"));
 		
 		//Email Text Field
 		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(Utilities.generateEmailWithTimeStamp());
 		
 		//Telephone Text Field
-		driver.findElement(By.xpath("//input[@id='input-telephone']")).sendKeys("9619033142");
+		driver.findElement(By.xpath("//input[@id='input-telephone']")).sendKeys(dataProp.getProperty("telePhone"));
 		
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Password Confirm Text Field
-		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Newsletter CheckBox Field
 		driver.findElement(By.xpath("//label[normalize-space()='Yes']//input[@name='newsletter']")).click();
@@ -119,7 +117,7 @@ public class Register extends Base {
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
 		String actualSuccessfulHeading=driver.findElement(By.xpath("//h1[normalize-space()='Your Account Has Been Created!']")).getText();
-		Assert.assertEquals(actualSuccessfulHeading, "Your Account Has Been Created!", "Account Success Page Is Not Displayed");
+		Assert.assertEquals(actualSuccessfulHeading, dataProp.getProperty("accountSuccessfullyCreatingHeading"), "Account Success Page Is Not Displayed");
 		
 		
 		
@@ -137,22 +135,22 @@ public class Register extends Base {
 		driver.findElement(By.xpath("//a[normalize-space()='Register']")).click();
 		
 		//First Name Text Field
-		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys("satish");
+		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys(dataProp.getProperty("firstName"));
 		
 		//Second NameText Field
-		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys("parihar");
+		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys(dataProp.getProperty("lastName"));
 		
 		//Email Text Field
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys("pariharsatish32@gmail.com");
+		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(prop.getProperty("validEmail"));
 		
 		//Telephone Text Field
-		driver.findElement(By.xpath("//input[@id='input-telephone']")).sendKeys("9619033142");
+		driver.findElement(By.xpath("//input[@id='input-telephone']")).sendKeys(dataProp.getProperty("telePhone"));
 		
 		//Password Text Field
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Password Confirm Text Field
-		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys(prop.getProperty("validPassword"));
 		
 		//Newsletter CheckBox Field
 		driver.findElement(By.xpath("//label[normalize-space()='Yes']//input[@name='newsletter']")).click();
@@ -164,7 +162,7 @@ public class Register extends Base {
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
 		String actualWarning=driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
-		Assert.assertTrue(actualWarning.contains( "Warning: E-Mail Address is already registered!"));
+		Assert.assertTrue(actualWarning.contains(dataProp.getProperty("duplicateEmailWarningMessage")));
 		
 		
 	}
@@ -184,22 +182,22 @@ public class Register extends Base {
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
 		String actualPrivacyPolicyWarning=driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
-		Assert.assertTrue(actualPrivacyPolicyWarning.contains( "Warning: You must agree to the Privacy Policy!"),"Privacy Policy Warning Message is not display");
+		Assert.assertTrue(actualPrivacyPolicyWarning.contains(dataProp.getProperty("privacyPolicyWarning")),"Privacy Policy Warning Message is not display");
 		
 		String actualFirstNameWarning=driver.findElement(By.xpath("//div[contains(text(),'First Name must be between 1 and 32 characters!')]")).getText();
-		Assert.assertEquals(actualFirstNameWarning,"First Name must be between 1 and 32 characters!","First Name Warning Message is not displayed.");
+		Assert.assertEquals(actualFirstNameWarning,dataProp.getProperty("firstNameWarning"),"First Name Warning Message is not displayed.");
 		
 		String actualLastNameWarning=driver.findElement(By.xpath("//div[contains(text(),'Last Name must be between 1 and 32 characters!')]")).getText();
-		Assert.assertEquals(actualLastNameWarning,"Last Name must be between 1 and 32 characters!","Last Name Warning Message is not displayed.");
+		Assert.assertEquals(actualLastNameWarning,dataProp.getProperty("lastNameWarning"),"Last Name Warning Message is not displayed.");
 		
 		String actualEmailWarning=driver.findElement(By.xpath("//div[contains(text(),'E-Mail Address does not appear to be valid!')]")).getText();
-		Assert.assertEquals(actualEmailWarning,"E-Mail Address does not appear to be valid!", "Email Address Warning Message is not displayed.");
+		Assert.assertEquals(actualEmailWarning,dataProp.getProperty("emailWarning"), "Email Address Warning Message is not displayed.");
 		
 		String actualTelephoneWarning=driver.findElement(By.xpath("//div[contains(text(),'Telephone must be between 3 and 32 characters!')]")).getText();
-		Assert.assertEquals(actualTelephoneWarning,"Telephone must be between 3 and 32 characters!", "Telephone Warning Message is not displayed.");
+		Assert.assertEquals(actualTelephoneWarning,dataProp.getProperty("telePhoneWarning"), "Telephone Warning Message is not displayed.");
 		
 		String actualPasswordWarning=driver.findElement(By.xpath("//div[contains(text(),'Password must be between 4 and 20 characters!')]")).getText();
-		Assert.assertEquals(actualPasswordWarning,"Password must be between 4 and 20 characters!", "Password Warning Message is not displayed.");
+		Assert.assertEquals(actualPasswordWarning,dataProp.getProperty("passwordWarning"), "Password Warning Message is not displayed.");
 	
 		
 		
